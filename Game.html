@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testing Grounds</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="images/pixil-frame-0.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="images/pixil-frame-0.png" sizes="16x16" />
+        
+    </head>
+    <body>
+        <canvas id="miCanvas" width="640" height="480"></canvas>
+        
+        <script src="js/framework.js" type="application/javascript"></script>
+        
+        <script type="application/javascript">
+            var spriteSheet = new Image();
+            
+            spriteSheet.onload = function(){
+                for (var i = 0 ; i < 10; i++){
+                    var enemigoClon = Object.create(enemigo);
+                    enemigoClon.x = (Math.random() *400) + 40;
+                    framework.objetosDeJuego.push(enemigoClon);
+                }
+                for (var i =0; i<10 ; i++){
+                    var balaClon = Object.create(bala);
+                    framework.objetosDeJuego.push(balaClon);
+                }
+                framework.objetosDeJuego.push(avion);
+                framework.iniciar();
+                mouse.iniciar();
+                teclado.iniciar();
+            };
+            
+            spriteSheet.src = "images/1942.png";
+            </script>
+        
+        
+        <script src="js/teclado.js" type="application/javascript"></script>
+        <script src="js/mouse.js" type="application/javascript"></script>
+        <script src="js/avion.js" type="application/javascript"></script>
+        <script src="js/enemy.js" type="application/javascript"></script>
+        <script src="js/bala.js" type="application/javascript"></script>
+        <!--<script src="js/mainLoop.js" type="application/javascript"></script>-->
+        
+    </body>
+    
+</html>
